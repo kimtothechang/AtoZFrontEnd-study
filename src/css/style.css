@@ -1,0 +1,11 @@
+.Nodes {
+  display: flex;
+}
+
+.Node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 12px;
+  border: 1px solid orange;
+}
