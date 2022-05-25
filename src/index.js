@@ -1,4 +1,6 @@
 import Nodes from './components/Nodes.js';
+import './css/style.css';
+import './img/icon.jpeg';
 
 const $app = document.querySelector('.root');
 
