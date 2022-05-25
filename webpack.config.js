@@ -1,7 +1,7 @@
 // 자동으로 output 경로 찾아준다? process.cwd()
 const path = require('path/posix');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-
+const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -18,6 +18,10 @@ module.exports = {
   },
   mode: 'production',
   plugins: [new HTMLWebpackPlugin({ template: 'index.html' }), new CleanWebpackPlugin()],
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin({ extractComments: false })],
+  },
 };
 
 // ES6
