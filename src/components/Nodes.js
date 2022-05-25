@@ -17,7 +17,7 @@ function Nodes({ $app, initialState }) {
         .map((node) => {
           return `
           <div class="Node" data-node-id="${node.id}">
-            <img src="./src/img/icon.jpeg" />
+            <img src="../src/img/icon.jpeg" />
             <div>${node.name}</div>
           </div>
         `;

@@ -2,6 +2,8 @@
 const path = require('path/posix');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -15,7 +17,7 @@ module.exports = {
     ],
   },
   mode: 'production',
-  plugin: [new HTMLWebpackPlugin({ template: 'index.html' })],
+  plugins: [new HTMLWebpackPlugin({ template: 'index.html' }), new CleanWebpackPlugin()],
 };
 
 // ES6
