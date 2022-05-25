@@ -1,5 +1,6 @@
 // 자동으로 output 경로 찾아준다? process.cwd()
 const path = require('path/posix');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -14,6 +15,7 @@ module.exports = {
     ],
   },
   mode: 'production',
+  plugin: [new HTMLWebpackPlugin({ template: 'index.html' })],
 };
 
 // ES6
