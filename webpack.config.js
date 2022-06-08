@@ -7,8 +7,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve('./dist'),
-    filename: '[name].[contenthash].js',
+    path: path.resolve(process.cwd(), 'dist'),
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -17,18 +17,20 @@ module.exports = {
     ],
   },
   mode: 'production',
-  plugins: [new HTMLWebpackPlugin({ template: 'index.html' }), new CleanWebpackPlugin()],
+  plugins: [
+    new HTMLWebpackPlugin({ template: 'index.html', filename: 'index.html' }),
+    new CleanWebpackPlugin(),
+  ],
   optimization: {
     minimize: true,
     minimizer: [new TerserPlugin({ extractComments: false })],
   },
+  devServer: {
+    static: {
+      publicPath: '/',
+      directory: path.join(__dirname, 'hoho'),
+      // publicPath: 'hoho',
+    },
+    port: 3333,
+  },
 };
-
-// ES6
-// import { resolve } from 'path/posix';
-
-// export const entry = './src/index.js';
-// export const output = {
-//   path: resolve(process.cwd(), 'dist'),
-//   filename: '[name].[contenthash].js',
-// };
