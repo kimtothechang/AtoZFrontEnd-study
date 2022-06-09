@@ -1,0 +1,4 @@
+{
+  "presets": [["@babel/preset-env"]], // 기본 설정
+  "plugins": [["@babel/plugin-transform-runtime", { "corejs": 3 }]] // 폴리필
+}

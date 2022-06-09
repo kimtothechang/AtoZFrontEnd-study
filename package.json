@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "serve": "webpack serve"
+    "serve": "webpack serve",
+    "transpile": "babel src/js -d transpile"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "@babel/cli": "^7.17.10",
     "@babel/core": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
+    "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
     "file-loader": "^6.2.0",
@@ -31,5 +33,11 @@
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.0"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.18.2",
+    "@babel/runtime-corejs3": "^7.18.3",
+    "core-js": "^3.22.8",
+    "whatwg-fetch": "^3.6.2"
   }
 }

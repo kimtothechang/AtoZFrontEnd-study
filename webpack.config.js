@@ -5,7 +5,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/js/index.js',
   output: {
     path: path.resolve(process.cwd(), 'dist'),
     filename: 'bundle.js',
@@ -14,6 +14,17 @@ module.exports = {
     rules: [
       { test: /\.css$/, use: ['style-loader', 'css-loader'] },
       { test: /\.(png|jpg|jpeg|gif)$/i, use: ['file-loader'] },
+      {
+        test: /\.js$/,
+        include: [path.resolve(__dirname, 'src/js')],
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [['@babel/preset-env', { useBuiltIns: 'usage', corejs: 3 }]],
+          },
+        },
+      },
     ],
   },
   mode: 'production',
